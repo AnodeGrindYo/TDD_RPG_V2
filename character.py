@@ -8,6 +8,7 @@ class Character:
         if damage < 0:
             raise ValueError("damage should be positive")
         self.hp -= damage
-        if self.hp <= 0:
+        if self.hp < 0:
             self.hp = 0
+        if self.hp == 0:
             self.is_alive = False

@@ -24,6 +24,11 @@ def test_character_get_damage_negative():
     except ValueError as e:
         assert str(e) == "damage should be positive"
 
+def test_character_hp_not_negative():
+    c = Character("Albert")
+    c.get_damage(110)
+    assert c.hp == 0
+
 def test_character_is_dead_when_hp_is_zero():
     c = Character("Albert")
     c.get_damage(100)
