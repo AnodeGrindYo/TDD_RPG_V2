@@ -8,3 +8,8 @@ def test_weapon_creation():
 def test_weapon_get_damage():
     sword = Weapon("Sword", 10)
     assert sword.get_damage() == 10
+
+def test_weapon_set_damage():
+    sword = Weapon("Sword", 10)
+    sword.set_damage(15)
+    assert sword.get_damage() == 15
