@@ -25,3 +25,10 @@ class Weapon:
 
     def is_broken(self):
         return self.damage == 0
+
+    def repair(self, amount):
+        if self.damage == 0:
+            self.damage = amount
+
+    def enhance(self, factor):
+        self.damage = int(self.damage * factor)

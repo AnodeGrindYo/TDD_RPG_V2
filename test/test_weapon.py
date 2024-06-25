@@ -42,3 +42,17 @@ def test_weapon_is_broken():
     assert not sword.is_broken()
     sword.downgrade(10)
     assert sword.is_broken()
+
+def test_weapon_repair():
+    sword = Weapon("Sword", 10)
+    sword.downgrade(10)
+    assert sword.is_broken()
+    sword.repair(5)
+    assert sword.get_damage() == 5
+    assert not sword.is_broken()
+
+def test_weapon_enhance():
+    sword = Weapon("Sword", 10)
+    sword.enhance(1.5)
+    assert sword.get_damage() == 15
+
