@@ -40,3 +40,18 @@ class Character:
         if len(self.inventory) >= self.max_inventory_size:
             raise ValueError("Inventory is full")
         self.inventory.append(potion)
+
+    def remove_potion_from_inventory(self, potion):
+        if potion not in self.inventory:
+            raise ValueError("Potion not in inventory")
+        self.inventory.remove(potion)   
+
+    def use_potion_from_inventory(self, potion):
+        if potion in self.inventory:
+            self.drink_potion(potion)
+            self.inventory.remove(potion)
+        else:
+            raise ValueError("Potion not in inventory") 
+    
+    def deal_damage(self, character, damage):
+        character.get_damage(damage)   
