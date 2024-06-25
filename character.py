@@ -56,7 +56,7 @@ class Character:
     def deal_damage(self, character, damage):
         character.get_damage(damage)   
 
-    def isinventory_full(self):
+    def is_inventory_full(self):
         return len(self.inventory) >= self.max_inventory_size
     
     
