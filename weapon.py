@@ -22,3 +22,6 @@ class Weapon:
 
     def rename(self, new_name):
         self.name = new_name
+
+    def is_broken(self):
+        return self.damage == 0

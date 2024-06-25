@@ -36,3 +36,9 @@ def test_weapon_rename():
     sword.rename("Excalibur")
     assert sword.name == "Excalibur"
     assert sword.describe() == "Weapon: Excalibur, Damage: 10"
+
+def test_weapon_is_broken():
+    sword = Weapon("Sword", 10)
+    assert not sword.is_broken()
+    sword.downgrade(10)
+    assert sword.is_broken()
