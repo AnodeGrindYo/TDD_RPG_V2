@@ -30,3 +30,9 @@ def test_weapon_downgrade():
     assert sword.get_damage() == 5
     sword.downgrade(10)
     assert sword.get_damage() == 0
+
+def test_weapon_rename():
+    sword = Weapon("Sword", 10)
+    sword.rename("Excalibur")
+    assert sword.name == "Excalibur"
+    assert sword.describe() == "Weapon: Excalibur, Damage: 10"

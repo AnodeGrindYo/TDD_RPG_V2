@@ -19,3 +19,6 @@ class Weapon:
         self.damage -= decrement
         if self.damage < 0:
             self.damage = 0
+
+    def rename(self, new_name):
+        self.name = new_name
