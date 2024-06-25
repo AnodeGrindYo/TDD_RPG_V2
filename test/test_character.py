@@ -113,3 +113,9 @@ def test_use_potion_from_inventory():
     c.use_potion_from_inventory(HealingItem.POTION)
     assert c.hp == 75
     assert HealingItem.POTION not in c.inventory
+    
+def test_character_deal_damage():
+    c1 = Character("Albert")
+    c2 = Character("Bob")
+    c1.deal_damage(c2, 10)
+    assert c2.hp == 90

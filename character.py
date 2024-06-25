@@ -52,3 +52,6 @@ class Character:
             self.inventory.remove(potion)
         else:
             raise ValueError("Potion not in inventory") 
+    
+    def deal_damage(self, character, damage):
+        character.get_damage(damage)   
