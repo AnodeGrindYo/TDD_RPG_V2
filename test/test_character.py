@@ -99,3 +99,17 @@ def test_put_potion_into_inventory_full():
         c.put_potion_into_inventory(HealingItem.SUPER_POTION)
     except ValueError as e:
         assert str(e) == "Inventory is full"
+
+def test_remove_potion_from_inventory():
+    c = Character("Albert")
+    c.put_potion_into_inventory(HealingItem.POTION)
+    c.remove_potion_from_inventory(HealingItem.POTION)
+    assert HealingItem.POTION not in c.inventory
+
+def test_use_potion_from_inventory():
+    c = Character("Albert")
+    c.put_potion_into_inventory(HealingItem.POTION)
+    c.get_damage(50)
+    c.use_potion_from_inventory(HealingItem.POTION)
+    assert c.hp == 75
+    assert HealingItem.POTION not in c.inventory

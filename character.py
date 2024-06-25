@@ -44,4 +44,11 @@ class Character:
     def remove_potion_from_inventory(self, potion):
         if potion not in self.inventory:
             raise ValueError("Potion not in inventory")
-        self.inventory.remove(potion)    
+        self.inventory.remove(potion)   
+
+    def use_potion_from_inventory(self, potion):
+        if potion in self.inventory:
+            self.drink_potion(potion)
+            self.inventory.remove(potion)
+        else:
+            raise ValueError("Potion not in inventory") 
