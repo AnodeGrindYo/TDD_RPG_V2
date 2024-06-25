@@ -171,3 +171,9 @@ def test_heal_after_damage_and_use_potion():
     c.use_potion_from_inventory(HealingItem.SUPER_POTION)
     assert c.hp == 80
 
+def test_deal_damage_and_check_is_alive():
+    c = Character("Albert")
+    c.get_damage(99)
+    assert c.is_alive == True
+    c.get_damage(1)
+    assert c.is_alive == False
