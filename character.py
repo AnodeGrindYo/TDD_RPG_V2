@@ -59,3 +59,6 @@ class Character:
     def isinventory_full(self):
         return len(self.inventory) >= self.max_inventory_size
     
+    def get_status(self):
+        return f"Name: {self.name}, HP: {self.hp}, Alive: {self.is_alive}"
+    
