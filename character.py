@@ -60,4 +60,3 @@ class Character:
         return len(self.inventory) >= self.max_inventory_size
     
     
-    #test
