@@ -8,3 +8,6 @@ class Weapon:
 
     def set_damage(self, damage):
         self.damage = damage
+
+    def describe(self):
+        return f"Weapon: {self.name}, Damage: {self.damage}"
