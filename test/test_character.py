@@ -126,8 +126,19 @@ def test_is_inventory_full():
         c.put_potion_into_inventory(HealingItem.POTION)
     assert c.is_inventory_full()
 
+
 def test_get_status():
     c = Character("Albert")
     assert c.get_status() == "Name: Albert, HP: 100, Alive: True"
     c.get_damage(100)
     assert c.get_status() == "Name: Albert, HP: 0, Alive: False"
+
+
+def test_character_deal_damage_and_heal():
+    c1 = Character("Alice")
+    c2 = Character("Bob")
+    c1.deal_damage(c2, 30)
+    assert c2.hp == 70
+    c2.heal(20)
+    assert c2.hp == 90
+
