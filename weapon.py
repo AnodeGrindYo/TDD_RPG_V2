@@ -11,3 +11,6 @@ class Weapon:
 
     def describe(self):
         return f"Weapon: {self.name}, Damage: {self.damage}"
+
+    def upgrade(self, increment):
+        self.damage += increment
