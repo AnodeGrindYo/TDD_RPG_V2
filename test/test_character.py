@@ -134,3 +134,15 @@ def test_character_deal_damage_and_heal():
     assert c2.hp == 70
     c2.heal(20)
     assert c2.hp == 90
+
+
+def test_character_multiple_damage_and_heal():
+    c = Character("Albert")
+    c.get_damage(30)
+    assert c.hp == 70
+    c.get_damage(20)
+    assert c.hp == 50
+    c.heal(10)
+    assert c.hp == 60
+    c.heal(50)
+    assert c.hp == 100
