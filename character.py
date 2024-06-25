@@ -1,4 +1,5 @@
 from enum import Enum
+from weapon import Weapon
 
 class HealingItem(Enum):
     POTION = 25
@@ -12,6 +13,7 @@ class Character:
         self.is_alive = True
         self.inventory = []
         self.max_inventory_size = 5
+        self.weapon = None
 
     def get_damage(self, damage):
         if damage < 0:
@@ -59,4 +61,5 @@ class Character:
     def is_inventory_full(self):
         return len(self.inventory) >= self.max_inventory_size
     
-    
+    def equip_weapon(self, weapon):
+        self.weapon = weapon

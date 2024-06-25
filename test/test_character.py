@@ -1,4 +1,5 @@
 from character import Character, HealingItem
+from weapon import Weapon
 
 def test_character_name():
     c = Character("Albert")
@@ -134,3 +135,9 @@ def test_character_deal_damage_and_heal():
     assert c2.hp == 70
     c2.heal(20)
     assert c2.hp == 90
+
+def test_equip_weapon():
+    c = Character("Albert")
+    sword = Weapon("Sword", 10)
+    c.equip_weapon(sword)
+    assert c.weapon == sword
