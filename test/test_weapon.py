@@ -13,3 +13,13 @@ def test_weapon_set_damage():
     sword = Weapon("Sword", 10)
     sword.set_damage(15)
     assert sword.get_damage() == 15
+
+def test_weapon_describe():
+    sword = Weapon("Sword", 10)
+    description = sword.describe()
+    assert description == "Weapon: Sword, Damage: 10"
+
+def test_weapon_upgrade():
+    sword = Weapon("Sword", 10)
+    sword.upgrade(5)
+    assert sword.get_damage() == 15
