@@ -1,4 +1,4 @@
-from character import Character
+from character import Character, HealingItem
 
 def test_character_name():
     c = Character("Albert")
@@ -53,3 +53,28 @@ def test_character_heal_negative():
         c.heal(-10)
     except ValueError as e:
         assert str(e) == "heal amount should be positive"
+
+def test_character_drinks_potion():
+    c = Character("Albert")
+    c.get_damage(50)
+    c.drink_potion(HealingItem.POTION)
+    assert c.hp == 75
+
+def test_character_drinks_super_potion():
+    c = Character("Albert")
+    c.get_damage(50)
+    c.drink_potion(HealingItem.SUPER_POTION)
+    assert c.hp == 100
+
+def test_character_drinks_hyper_potion():
+    c = Character("Albert")
+    c.get_damage(50)
+    c.drink_potion(HealingItem.HYPER_POTION)
+    assert c.hp == 100
+
+def test_character_drinks_invalid_potion():
+    c = Character("Albert")
+    try:
+        c.drink_potion("INVALID_POTION")
+    except ValueError as e:
+        assert str(e) == "Invalid potion type"
