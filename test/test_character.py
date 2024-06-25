@@ -155,3 +155,14 @@ def test_character_multiple_damage_and_heal():
     c.heal(50)
     assert c.hp == 100
 
+# Nouveaux tests ajoutés
+
+def test_use_potion_not_in_inventory():
+    c = Character("Albert")
+    try:
+        c.use_potion_from_inventory(HealingItem.POTION)
+    except ValueError as e:
+        assert str(e) == "Potion not in inventory"
+
+
+
