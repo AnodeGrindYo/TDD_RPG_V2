@@ -14,3 +14,8 @@ class Weapon:
 
     def upgrade(self, increment):
         self.damage += increment
+
+    def downgrade(self, decrement):
+        self.damage -= decrement
+        if self.damage < 0:
+            self.damage = 0

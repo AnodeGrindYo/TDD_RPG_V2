@@ -23,3 +23,10 @@ def test_weapon_upgrade():
     sword = Weapon("Sword", 10)
     sword.upgrade(5)
     assert sword.get_damage() == 15
+
+def test_weapon_downgrade():
+    sword = Weapon("Sword", 10)
+    sword.downgrade(5)
+    assert sword.get_damage() == 5
+    sword.downgrade(10)
+    assert sword.get_damage() == 0
