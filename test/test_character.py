@@ -128,6 +128,13 @@ def test_is_inventory_full():
     assert c.is_inventory_full()
 
 
+def test_get_status():
+    c = Character("Albert")
+    assert c.get_status() == "Name: Albert, HP: 100, Alive: True"
+    c.get_damage(100)
+    assert c.get_status() == "Name: Albert, HP: 0, Alive: False"
+
+
 def test_character_deal_damage_and_heal():
     c1 = Character("Alice")
     c2 = Character("Bob")
