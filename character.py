@@ -12,3 +12,10 @@ class Character:
             self.hp = 0
         if self.hp == 0:
             self.is_alive = False
+
+    def heal(self, amount):
+        if amount < 0:
+            raise ValueError("heal amount should be positive")
+        self.hp += amount
+        if self.hp > 100:
+            self.hp = 100
