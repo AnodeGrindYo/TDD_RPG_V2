@@ -78,3 +78,24 @@ def test_character_drinks_invalid_potion():
         c.drink_potion("INVALID_POTION")
     except ValueError as e:
         assert str(e) == "Invalid potion type"
+
+def test_put_potion_into_inventory_valid():
+    c = Character("Albert")
+    c.put_potion_into_inventory(HealingItem.POTION)
+    assert HealingItem.POTION in c.inventory
+
+def test_put_potion_into_inventory_invalid():
+    c = Character("Albert")
+    try:
+        c.put_potion_into_inventory("INVALID_POTION")
+    except ValueError as e:
+        assert str(e) == "Invalid potion type"
+
+def test_put_potion_into_inventory_full():
+    c = Character("Albert")
+    for _ in range(5):
+        c.put_potion_into_inventory(HealingItem.POTION)
+    try:
+        c.put_potion_into_inventory(HealingItem.SUPER_POTION)
+    except ValueError as e:
+        assert str(e) == "Inventory is full"

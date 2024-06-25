@@ -10,6 +10,8 @@ class Character:
         self.name = name
         self.hp = 100
         self.is_alive = True
+        self.inventory = []
+        self.max_inventory_size = 5
 
     def get_damage(self, damage):
         if damage < 0:
@@ -31,3 +33,10 @@ class Character:
         if potion not in HealingItem:
             raise ValueError("Invalid potion type")
         self.heal(potion.value)
+
+    def put_potion_into_inventory(self, potion):
+        if type(potion) != HealingItem:
+            raise ValueError("Invalid potion type")
+        if len(self.inventory) >= self.max_inventory_size:
+            raise ValueError("Inventory is full")
+        self.inventory.append(potion)
